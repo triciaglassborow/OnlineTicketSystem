@@ -15,6 +15,8 @@ int main()
     string a,
         b,
         c,
+        //Customer
+        username,
         fName,
         sName,
         address;
@@ -30,8 +32,9 @@ int main()
     customer CUST;
 
     //Getting customer details
-    CUST.getLogin();
+    CUST.getLogin(username);
     CUST.getProfileInfo(fName,sName,address);
-    CUST.displayProfileInfo(fName, sName, address);
+    //Displaying customer details
+    CUST.displayProfileInfo(username, fName, sName, address);
 }
 

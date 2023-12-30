@@ -12,13 +12,14 @@ class customer
 public:
 	customer();
 	~customer();
-	void getLogin();
+	void getLogin(string& username);
 	void getProfileInfo(string& fName, string& sName, string& address);
-	void displayProfileInfo(string fName, string sName, string address);
+	void displayProfileInfo(string username, string fName, string sName, string address);
 	//void getPaymentInfo();
 
 protected:
-	string fName,
+	string username, 
+		fName,
 		sName,
 		address;
 };
@@ -37,9 +38,9 @@ customer::~customer()
 {}
 
 //Login
-void customer::getLogin()
+void customer::getLogin(string& username)
 {
-	string username; /*The final system would use a database to store all the 
+	/*The final system would use a database to store all the 
 	usernames and passwords in a database */
 	string password; /*For this first prototype, the system will accept any 
 	username and password */
@@ -98,10 +99,11 @@ void customer::getProfileInfo(string& fName, string& sName, string& address)
 	getline(cin, address);
 }
 
-void customer::displayProfileInfo(string fName, string sName, string address)
+void customer::displayProfileInfo(string username, string fName, string sName, string address)
 {
 	system("CLS");
 	cout << "PROFILE" << endl;
+	cout << "Username: " << username << endl;
 	cout << "First Name: " << fName << endl;
 	cout << "Surname: " << sName << endl;
 	cout << "Address: " << address << endl;
