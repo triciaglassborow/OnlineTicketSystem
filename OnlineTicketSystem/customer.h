@@ -14,7 +14,8 @@ public:
 	~customer();
 	void getLogin();
 	void getProfileInfo(string& fName, string& sName, string& address);
-	void getPaymentInfo();
+	void displayProfileInfo(string fName, string sName, string address);
+	//void getPaymentInfo();
 
 protected:
 	string fName,
@@ -75,6 +76,34 @@ void customer::getLogin()
 
 
 	//Login Successfull
+	//Screen is cleared and then welcomes the user
 	system("CLS");
 	cout << "Welcome " << username << endl;
+}
+
+//Create Customer Profile
+void customer::getProfileInfo(string& fName, string& sName, string& address)
+{
+	cout << "CREATE PROFILE" << endl;
+	//First Name
+	cout << "\nEnter First Name: ";
+	getline(cin, fName);
+
+	//Surname
+	cout << "Enter Surname Name: ";
+	getline(cin, sName);
+
+	//Address -imporve this-
+	cout << "Enter Address: ";
+	getline(cin, address);
+}
+
+void customer::displayProfileInfo(string fName, string sName, string address)
+{
+	system("CLS");
+	cout << "PROFILE" << endl;
+	cout << "First Name: " << fName << endl;
+	cout << "Surname: " << sName << endl;
+	cout << "Address: " << address << endl;
+
 }
