@@ -12,9 +12,9 @@ class customer
 public:
 	customer();
 	~customer();
-	void getLogin(string& username);
-	void getProfileInfo(string& fName, string& sName, string& address);
-	void displayProfileInfo(string username, string fName, string sName, string address);
+	void login();
+	void createProfile();
+	void displayProfileInfo();
 	//void getPaymentInfo();
 
 protected:
@@ -38,7 +38,7 @@ customer::~customer()
 {}
 
 //Login
-void customer::getLogin(string& username)
+void customer::login()
 {
 	/*The final system would use a database to store all the 
 	usernames and passwords in a database */
@@ -50,6 +50,7 @@ void customer::getLogin(string& username)
 	cout << "LOGIN" << endl;
 	cout << "Enter Username: ";
 	getline(cin, username);
+	/*Create the profile then save */
 
 	//Username is more then 10 characters
 	while (username.length() > 10)
@@ -83,7 +84,7 @@ void customer::getLogin(string& username)
 }
 
 //Create Customer Profile
-void customer::getProfileInfo(string& fName, string& sName, string& address)
+void customer::createProfile()
 {
 	cout << "CREATE PROFILE" << endl;
 	//First Name
@@ -99,7 +100,8 @@ void customer::getProfileInfo(string& fName, string& sName, string& address)
 	getline(cin, address);
 }
 
-void customer::displayProfileInfo(string username, string fName, string sName, string address)
+//Display Customer Profile
+void customer::displayProfileInfo()
 {
 	system("CLS");
 	cout << "PROFILE" << endl;
@@ -107,5 +109,4 @@ void customer::displayProfileInfo(string username, string fName, string sName, s
 	cout << "First Name: " << fName << endl;
 	cout << "Surname: " << sName << endl;
 	cout << "Address: " << address << endl;
-
 }

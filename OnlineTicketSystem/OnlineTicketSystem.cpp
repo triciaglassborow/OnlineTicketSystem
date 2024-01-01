@@ -4,22 +4,40 @@ using namespace std;
 
 
 #include <iostream>
+#include <iomanip>
 #include <string>
+#include <Windows.h>
 
 #include "customer.h"
 
+//Main Menu Function
+void menu(customer CUST)
+{
+    system("CLS");
+
+    char menu_input;
+    cout << "MAIN MENU" << endl;
+
+    cout << "1. Display Profile Info" << endl;
+    cout << "2. Choose a Show" << endl;
+
+    cout << "Enter Choice: ";
+    cin >> menu_input;
+
+    switch (menu_input)
+    {
+        case '1' : CUST.displayProfileInfo(); //Displaying customer details
+            break;
+        case '2': 
+    }
+}
 
 int main()
 {
     //Variables
     string a,
         b,
-        c,
-        //Customer
-        username,
-        fName,
-        sName,
-        address;
+        c;
 
     int d;
 
@@ -32,9 +50,14 @@ int main()
     customer CUST;
 
     //Getting customer details
-    CUST.getLogin(username);
-    CUST.getProfileInfo(fName,sName,address);
-    //Displaying customer details
-    CUST.displayProfileInfo(username, fName, sName, address);
+    CUST.login();
+    CUST.createProfile();
+    
+    //Main Menu, user can select what they want to do
+    menu(CUST);
+    
 }
+
+
+
 
