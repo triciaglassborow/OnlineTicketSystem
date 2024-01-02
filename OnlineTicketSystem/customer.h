@@ -1,11 +1,11 @@
 //customer.h 
 
-using namespace std;
-
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <Windows.h>
+
+using namespace std;
 
 class customer
 {

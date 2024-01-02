@@ -7,25 +7,36 @@ using namespace std;
 #include <string>
 #include <Windows.h>
 
-class showList
+#include "show.h"
+
+class ShowList
 {
 public:
-	showList();
-	~showList();
-	
+	ShowList();
+	~ShowList();
+	void InitiliseShows();
 
 protected:
-	
+	show* showList[8];
 };
 
 //Constructor
-showList :: showList()
+ShowList :: ShowList()
 {
+	//Initialise Variables 
 
+	
+	
 }
 
 //Destructor
-showList::~showList()
+ShowList::~ShowList()
 {
 
 }
+
+void ShowList::InitiliseShows()
+{
+	showList[0] = new show("show1", "Date1", "Time1");
+}
+

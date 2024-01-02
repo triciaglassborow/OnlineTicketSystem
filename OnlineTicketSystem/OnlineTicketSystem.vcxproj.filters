@@ -23,7 +23,10 @@
     <ClInclude Include="customer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="showList.h">
+    <ClInclude Include="ShowList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="show.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
