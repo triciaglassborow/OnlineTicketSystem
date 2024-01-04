@@ -9,9 +9,10 @@ using namespace std;
 #include <Windows.h>
 
 #include "customer.h"
+#include "ShowList.h"
 
 //Main Menu Function
-void menu(customer CUST)
+void menu(customer CUST, ShowList SHOWLIST)
 {
     system("CLS");
 
@@ -28,7 +29,8 @@ void menu(customer CUST)
     {
         case '1' : CUST.displayProfileInfo(); //Displaying customer details
             break;
-        case '2': 
+        case '2': SHOWLIST.DisplayShowList();
+            break;
     }
 }
 
@@ -48,13 +50,14 @@ int main()
 
     //Objects
     customer CUST;
+    ShowList SHOWLIST;
 
     //Getting customer details
     CUST.login();
     CUST.createProfile();
     
     //Main Menu, user can select what they want to do
-    menu(CUST);
+    menu(CUST, SHOWLIST);
     
 }
 

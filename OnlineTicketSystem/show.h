@@ -10,24 +10,28 @@ class show
 public:
 	show(string Name, string Date, string Time);
 	~show();
-	void DisplayShow();
+	void DisplayShow(int position);
 
 protected:
 	string showName,
 		showDate,
 		showTime;
+
+	int showPosition;
 	
 };
 
 //Constructor 
-show::show(string Name, string Date, string Time)
+show::show(string name, string date, string time)
 {
-	this->showName = Name;
-	this->showDate = Date;
-	this->showTime = Time;
+	this->showName = name;
+	this->showDate = date;
+	this->showTime = time;
 }
 
-void show::DisplayShow()
+void show::DisplayShow(int position)
 {
-	cout << showName;
+	this->showPosition = position;
+
+	cout << showPosition << " " << showName << " | ";
 }
