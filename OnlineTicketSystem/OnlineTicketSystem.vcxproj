@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="customer.h" />
+    <ClInclude Include="FloorChart.h" />
     <ClInclude Include="show.h" />
     <ClInclude Include="ShowList.h" />
   </ItemGroup>
