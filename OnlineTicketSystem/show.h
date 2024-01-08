@@ -43,6 +43,7 @@ void Show::DisplayShowName(int position)
 
 void Show::DisplayShowDetails()
 {
+	system("CLS");
 	cout << showName << endl;
 	cout << showDate << endl;
 	cout << showTime << endl;
@@ -53,4 +54,5 @@ void Show::DisplayShowDetails()
 void Show::SeatSelection()
 {
 	FLOOR.DisplayFloorChart();
+	FLOOR.SelectSeat();
 }

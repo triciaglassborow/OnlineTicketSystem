@@ -50,35 +50,39 @@ void FloorChart::DisplayFloorChart()
 		if (r == 2)
 			cout << "\n  |_____|_____|_____|_____|_____|"; // adding a bottom to the final row
 	}
-
-	SelectSeat();
 }
 
 
 
 void FloorChart::SelectSeat()
 {
-
-	int r, c;
+	int count = 0;
+	int r, c, max;
 	char comma, column;
 	static_cast <char> (held);
 
-	cout << "Enter a seat you would like, eg 2,B: ";
-	cin >> r >> comma >> column;
-	
-	if (column == 'A' || column == 'a')
-		c = 0;
-	if (column == 'B' || column == 'b')
-		c = 1;
-	if (column == 'C' || column == 'c')
-		c = 2;
-	if (column == 'D' || column == 'd')
-		c = 3;
-	if (column == 'E' || column == 'e')
-		c = 4;
+	cout << "\nHow many seats would you like?";
+	cin >> max; 
 
-	floor[r-1][c] = held;
-	DisplayFloorChart();
-	
-		
+	do
+	{
+		cout << "\nEnter a seat you would like, eg 2,B: ";
+		cin >> r >> comma >> column;
+
+		if (column == 'A' || column == 'a')
+			c = 0;
+		if (column == 'B' || column == 'b')
+			c = 1;
+		if (column == 'C' || column == 'c')
+			c = 2;
+		if (column == 'D' || column == 'd')
+			c = 3;
+		if (column == 'E' || column == 'e')
+			c = 4;
+
+		floor[r - 1][c] = held;
+		DisplayFloorChart();
+
+		count++;
+	} while (count != max);
 }
