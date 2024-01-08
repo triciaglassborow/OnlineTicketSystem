@@ -12,7 +12,7 @@ class Show
 public:
 	Show(string Name, string Date, string Time);
 	void DisplayShowName(int position);
-	void DisplayFloorChart();
+	void SeatSelection();
 	void DisplayShowDetails();
 
 protected:
@@ -47,10 +47,10 @@ void Show::DisplayShowDetails()
 	cout << showDate << endl;
 	cout << showTime << endl;
 
-	DisplayFloorChart();
+	SeatSelection();
 
 }
-void Show::DisplayFloorChart()
+void Show::SeatSelection()
 {
-	FLOOR.CreateFloorChart();
+	FLOOR.DisplayFloorChart();
 }
