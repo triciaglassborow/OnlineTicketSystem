@@ -79,7 +79,7 @@ void FloorChart::SelectSeat()
 			c = 3;
 		if (column == 'E' || column == 'e')
 			c = 4;
-
+		// check seat status
 		floor[r - 1][c] = held;
 		DisplayFloorChart();
 

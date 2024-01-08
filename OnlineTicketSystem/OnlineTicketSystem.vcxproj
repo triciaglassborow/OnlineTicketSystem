@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="customer.h" />
     <ClInclude Include="FloorChart.h" />
+    <ClInclude Include="Seat.h" />
     <ClInclude Include="Show.h" />
     <ClInclude Include="ShowList.h" />
   </ItemGroup>
