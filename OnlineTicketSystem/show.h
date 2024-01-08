@@ -3,35 +3,54 @@
 #include <string>
 #include <Windows.h>
 
+#include "FloorChart.h"
+
 using namespace std;
 
-class show
+class Show
 {
 public:
-	show(string Name, string Date, string Time);
-	~show();
-	void DisplayShow(int position);
+	Show(string Name, string Date, string Time);
+	void DisplayShowName(int position);
+	void DisplayFloorChart();
+	void DisplayShowDetails();
 
 protected:
 	string showName,
 		showDate,
 		showTime;
-
 	int showPosition;
-	
+
+	FloorChart FLOOR;
 };
 
 //Constructor 
-show::show(string name, string date, string time)
+Show::Show(string name, string date, string time)
 {
 	this->showName = name;
 	this->showDate = date;
 	this->showTime = time;
+
+	
 }
 
-void show::DisplayShow(int position)
+void Show::DisplayShowName(int position)
 {
 	this->showPosition = position;
 
 	cout << showPosition << " " << showName << " | ";
+}
+
+void Show::DisplayShowDetails()
+{
+	cout << showName << endl;
+	cout << showDate << endl;
+	cout << showTime << endl;
+
+	DisplayFloorChart();
+
+}
+void Show::DisplayFloorChart()
+{
+	FLOOR.CreateFloorChart();
 }

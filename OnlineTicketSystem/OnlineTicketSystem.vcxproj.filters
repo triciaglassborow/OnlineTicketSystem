@@ -26,7 +26,7 @@
     <ClInclude Include="ShowList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="show.h">
+    <ClInclude Include="Show.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FloorChart.h">

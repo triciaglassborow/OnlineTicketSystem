@@ -53,8 +53,8 @@ int main()
     ShowList SHOWLIST;
 
     //Getting customer details
-    CUST.login();
-    CUST.createProfile();
+    //CUST.login();
+    //CUST.createProfile();
     
     //Main Menu, user can select what they want to do
     menu(CUST, SHOWLIST);

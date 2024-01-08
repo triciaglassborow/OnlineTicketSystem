@@ -132,7 +132,7 @@
   <ItemGroup>
     <ClInclude Include="customer.h" />
     <ClInclude Include="FloorChart.h" />
-    <ClInclude Include="show.h" />
+    <ClInclude Include="Show.h" />
     <ClInclude Include="ShowList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
