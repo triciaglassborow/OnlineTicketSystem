@@ -7,6 +7,7 @@ using namespace std;
 
 class FloorChart
 {
+
 public:
 	FloorChart();
 	void DisplayFloorChart();
@@ -18,6 +19,7 @@ protected:
 	char held =  'H';
 	char unavailble = 'X';
 	string seat;
+	
 };
 
 FloorChart::FloorChart()
@@ -48,10 +50,35 @@ void FloorChart::DisplayFloorChart()
 		if (r == 2)
 			cout << "\n  |_____|_____|_____|_____|_____|"; // adding a bottom to the final row
 	}
+
+	SelectSeat();
 }
+
+
 
 void FloorChart::SelectSeat()
 {
-	cout << "Enter a seat you would like, eg 2B: ";
-	cin >> seat;
+
+	int r, c;
+	char comma, column;
+	static_cast <char> (held);
+
+	cout << "Enter a seat you would like, eg 2,B: ";
+	cin >> r >> comma >> column;
+	
+	if (column == 'A' || column == 'a')
+		c = 0;
+	if (column == 'B' || column == 'b')
+		c = 1;
+	if (column == 'C' || column == 'c')
+		c = 2;
+	if (column == 'D' || column == 'd')
+		c = 3;
+	if (column == 'E' || column == 'e')
+		c = 4;
+
+	floor[r-1][c] = held;
+	DisplayFloorChart();
+	
+		
 }
