@@ -3,6 +3,7 @@
 #include <string>
 #include <Windows.h>
 
+#include "Seat.h"
 using namespace std;
 
 class FloorChart
@@ -14,10 +15,10 @@ public:
 	void SelectSeat();
 
 protected:
-	int floor[3][5];
-	char available = 'A';
-	char held =  'H';
-	char unavailble = 'X';
+	shared_ptr<Seat>floor[3][5];
+	string available = "A",
+		held = "H",
+		unavailble = "X";
 	string seat;
 	
 };
@@ -26,7 +27,7 @@ FloorChart::FloorChart()
 {
 	for (int r = 0; r < 3; ++r)
 		for (int c = 0; c < 5; ++c)
-			floor[r][c] = available; //Displaying all seats as available when the floor chart is first created
+			floor[r][c] = shared_ptr<Seat>(new Seat(available)); //setting all seats as available when the floor chart is first created
 
 
 }
@@ -42,7 +43,7 @@ void FloorChart::DisplayFloorChart()
 		cout << r+1 <<" |"; // row lables
 		for (int c = 0; c < 5; ++c)
 		{
-			cout << setw(3) << static_cast<char>(floor[r][c]); // adding the seat availablity
+			floor[r][c]->DisplayStatus(); // displaying each seats status 
 			cout << "  |";
 		}
 		if (r !=2) 
@@ -59,7 +60,6 @@ void FloorChart::SelectSeat()
 	int count = 0;
 	int r, c, max;
 	char comma, column;
-	static_cast <char> (held);
 
 	cout << "\nHow many seats would you like?";
 	cin >> max; 
@@ -80,7 +80,7 @@ void FloorChart::SelectSeat()
 		if (column == 'E' || column == 'e')
 			c = 4;
 		// check seat status
-		floor[r - 1][c] = held;
+		floor[r - 1][c] ->SetStatus(held);
 		DisplayFloorChart();
 
 		count++;
