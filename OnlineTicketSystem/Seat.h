@@ -12,11 +12,13 @@ public:
 	Seat(string Status);
 	void SetStatus(string Status);
 	void DisplayStatus();
-	void CheckStatus();
+	string CheckStatus();
 
 protected:
 	string status;
-	
+	string available = "A",
+		held = "H",
+		unavailble = "X";
 
 	int price;
 };
@@ -36,7 +38,12 @@ void Seat::DisplayStatus()
 	cout << "  " << status;
 }
 
-void Seat::CheckStatus()
+string Seat::CheckStatus()
 {
-
+	if (status == available)
+		return available;
+	if (status == held)
+		return held;
+	if (status == unavailble)
+		return unavailble;
 }

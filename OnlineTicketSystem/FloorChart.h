@@ -60,7 +60,6 @@ void FloorChart::SelectSeat()
 	int count = 0;
 	int r, c, max;
 	char comma, column;
-
 	cout << "\nHow many seats would you like?";
 	cin >> max; 
 
@@ -79,10 +78,17 @@ void FloorChart::SelectSeat()
 			c = 3;
 		if (column == 'E' || column == 'e')
 			c = 4;
-		// check seat status
-		floor[r - 1][c] ->SetStatus(held);
-		DisplayFloorChart();
-
+		floor[r - 1][c]->CheckStatus();
+		if (floor[r - 1][c]->CheckStatus() != available)
+		{
+			cout << "Seat Not Available";
+			count = count - 1;
+		}
+		else 
+		{
+			floor[r - 1][c]->SetStatus(held);
+		}
 		count++;
 	} while (count != max);
+	DisplayFloorChart();
 }
