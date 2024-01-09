@@ -66,9 +66,10 @@ void FloorChart::SelectSeat()
 	do
 	{
 		cout << "\nEnter a seat you would like, eg 2,B: ";
-		cin >> r >> comma >> column;
+		cin >> r >> comma >> column; // reading in the 3 characters inputed 
 
-		if (column == 'A' || column == 'a')
+		// Assigning the letter input to corresponding column postion 
+		if (column == 'A' || column == 'a')  
 			c = 0;
 		if (column == 'B' || column == 'b')
 			c = 1;
@@ -78,15 +79,17 @@ void FloorChart::SelectSeat()
 			c = 3;
 		if (column == 'E' || column == 'e')
 			c = 4;
+
 		floor[r - 1][c]->CheckStatus();
-		if (floor[r - 1][c]->CheckStatus() != available)
+
+		if (floor[r - 1][c]->CheckStatus() != available) // if CheckStatus returned held or unavailalbe 
 		{
 			cout << "Seat Not Available";
-			count = count - 1;
+			count = count - 1; // taking the counter back one step so they can re-select a seat
 		}
 		else 
 		{
-			floor[r - 1][c]->SetStatus(held);
+			floor[r - 1][c]->SetStatus(held); //making that seat status held
 		}
 		count++;
 	} while (count != max);
