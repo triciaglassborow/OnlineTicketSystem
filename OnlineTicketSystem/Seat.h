@@ -9,7 +9,7 @@ using namespace std;
 class Seat
 {
 public:
-	Seat(string Status);
+	Seat(string Status, int Price);
 	void SetStatus(string Status);
 	void DisplayStatus();
 	string CheckStatus();
@@ -23,9 +23,10 @@ protected:
 	int price;
 };
 
-Seat::Seat(string Status)
+Seat::Seat(string Status, int Price)
 {
 	this->status = Status;
+	this->price = Price; 
 }
 
 void Seat::SetStatus(string Status)
