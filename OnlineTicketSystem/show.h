@@ -55,4 +55,5 @@ void Show::SeatSelection()
 {
 	FLOOR.DisplayFloorChart();
 	FLOOR.SelectSeat();
+	FLOOR.DisplayTicketList();
 }

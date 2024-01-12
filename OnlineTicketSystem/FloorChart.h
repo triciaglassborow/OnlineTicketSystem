@@ -16,6 +16,8 @@ public:
 	void InitiliseFloorChart();
 	void DisplayFloorChart();
 	void SelectSeat();
+	void AddToTicketList(int SeatNum, int R, char Column, int SeatPrice);
+	void DisplayTicketList();
 
 protected:
 	shared_ptr<Seat>floor[3][5];
@@ -34,6 +36,7 @@ protected:
 
 	int numOfSeats;
 
+	string ticketList[8];
 	
 };
 
@@ -109,7 +112,7 @@ void FloorChart::DisplayFloorChart()
 void FloorChart::SelectSeat()
 {
 	int count = 0;
-	int r, c,
+	int r,
 		seatPrice;
 	char comma, column;
 	cout << "\nHow many seats would you like? ";
@@ -117,6 +120,8 @@ void FloorChart::SelectSeat()
 
 	do
 	{
+		int c = 0;
+
 		cout << "\nEnter a seat you would like, eg 2,B: ";
 		cin >> r >> comma >> column; // reading in the 3 characters inputed 
 
@@ -145,12 +150,25 @@ void FloorChart::SelectSeat()
 		{
 			floor[r][c]->SetStatus(held); //making that seat status held
 			seatPrice = floor[r][c]->GetPrice();
-			//AddToTicket(numOfSeats, count, r, column, seatPrice);
+			AddToTicketList(count, r+1, column, seatPrice);
 		}
 		count++;
 	} while (count != numOfSeats);
 	DisplayFloorChart();
 }
 
+void FloorChart::AddToTicketList(int SeatNum, int R, char Column, int SeatPrice)
+{
+	string r = to_string(R);
+	string seatPrice = to_string(SeatPrice);
+	string ticketText ="Seat: " + r + Column+ "   Price: " + seatPrice;
+	ticketList[SeatNum] = { ticketText };
+}
 
-
+void FloorChart::DisplayTicketList()
+{
+	for (int i = 0; i < 7; i++)
+	{
+		cout << ticketList[i] << "\n";
+	}
+}
