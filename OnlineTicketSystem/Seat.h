@@ -13,6 +13,7 @@ public:
 	void SetStatus(string Status);
 	void DisplayStatus();
 	string CheckStatus();
+	int GetPrice();
 
 protected:
 	string status;
@@ -26,7 +27,7 @@ protected:
 Seat::Seat(string Status, int Price)
 {
 	this->status = Status;
-	this->price = Price; 
+	this->price = Price;
 }
 
 void Seat::SetStatus(string Status)
@@ -47,4 +48,9 @@ string Seat::CheckStatus()
 		return held;
 	if (status == unavailble)
 		return unavailble;
+}
+
+int Seat::GetPrice()
+{
+	cout << price;
 }

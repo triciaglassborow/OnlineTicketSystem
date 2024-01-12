@@ -4,7 +4,7 @@
 #include <Windows.h>
 
 #include "Seat.h"
-#include "Ticket.h"
+
 using namespace std;
 
 class FloorChart
@@ -64,6 +64,11 @@ void FloorChart::InitiliseFloorChart()
 				floor[r][c] = shared_ptr<Seat>(new Seat(available, tier3));
 		}
 	}
+
+	/*for (int r = 0; r < 3; ++r)
+		for (int c = 0; c < 5; ++c)
+			floor[r][c] = shared_ptr<Seat>(new Seat(available)); //setting all seats as available when the floor chart is first created*/
+
 }
 
 void FloorChart::DisplayFloorChart()
@@ -105,7 +110,7 @@ void FloorChart::SelectSeat()
 	int count = 0;
 	int r, c;
 	char comma, column;
-	cout << "\nHow many seats would you like?";
+	cout << "\nHow many seats would you like? ";
 	cin >> numOfSeat; 
 
 	do
@@ -135,13 +140,12 @@ void FloorChart::SelectSeat()
 		else 
 		{
 			floor[r - 1][c]->SetStatus(held); //making that seat status held
+			floor[r - 1][c]->GetPrice();
 		}
 		count++;
 	} while (count != numOfSeat);
+	
+	
 	DisplayFloorChart();
 }
 
-void FloorChart::TicketInfo()
-{
-	
-}
