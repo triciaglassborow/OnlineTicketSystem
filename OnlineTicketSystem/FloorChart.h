@@ -112,20 +112,20 @@ void FloorChart::DisplayFloorChart()
 void FloorChart::SelectSeat()
 {
 	int count = 0;
-	int r,
+	int row,
 		seatPrice;
 	char comma, column;
 	cout << "\nHow many seats would you like? ";
-	cin >> numOfSeats;
+	cin >> numOfSeats; //number of seats the user wants
 
 	do
 	{
-		int c = 0;
-
+		int c = 0,
+			r = 0;
 		cout << "\nEnter a seat you would like, eg 2,B: ";
-		cin >> r >> comma >> column; // reading in the 3 characters inputed 
+		cin >> row >> comma >> column; // reading in the 3 characters inputed 
 
-		r = r - 1; //Making the input line up with the array position. eg, first row = 0 but the input will be 1.
+		r = row - 1; //Making the input line up with the array position. eg, first row = 0 but the input will be 1.
 
 		// Assigning the letter input to corresponding column postion 
 		if (column == 'A' || column == 'a')  
@@ -150,7 +150,7 @@ void FloorChart::SelectSeat()
 		{
 			floor[r][c]->SetStatus(held); //making that seat status held
 			seatPrice = floor[r][c]->GetPrice();
-			AddToTicketList(count, r+1, column, seatPrice);
+			AddToTicketList(count, row, column, seatPrice);
 		}
 		count++;
 	} while (count != numOfSeats);
@@ -159,15 +159,15 @@ void FloorChart::SelectSeat()
 
 void FloorChart::AddToTicketList(int SeatNum, int R, char Column, int SeatPrice)
 {
-	string r = to_string(R);
-	string seatPrice = to_string(SeatPrice);
-	string ticketText ="Seat: " + r + Column+ "   Price: " + seatPrice;
+	string r = to_string(R); // converting int R to string r
+	string seatPrice = to_string(SeatPrice); //converting int SeatPrice to string seatPrice
+	string ticketText ="Seat: " + r + Column+ "   Price: " + seatPrice; // Makeing it one string to add to ticketList
 	ticketList[SeatNum] = { ticketText };
 }
 
 void FloorChart::DisplayTicketList()
 {
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < numOfSeats; i++)
 	{
 		cout << ticketList[i] << "\n";
 	}
