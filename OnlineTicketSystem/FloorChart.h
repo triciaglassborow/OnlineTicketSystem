@@ -5,6 +5,7 @@
 
 #include "Seat.h"
 
+
 using namespace std;
 
 class FloorChart
@@ -15,7 +16,6 @@ public:
 	void InitiliseFloorChart();
 	void DisplayFloorChart();
 	void SelectSeat();
-	void TicketInfo();
 
 protected:
 	shared_ptr<Seat>floor[3][5];
@@ -32,7 +32,8 @@ protected:
 		tier2 = 2,
 		tier3 = 3;
 
-	int numOfSeat;
+	int numOfSeats;
+
 	
 };
 
@@ -108,15 +109,18 @@ void FloorChart::DisplayFloorChart()
 void FloorChart::SelectSeat()
 {
 	int count = 0;
-	int r, c;
+	int r, c,
+		seatPrice;
 	char comma, column;
 	cout << "\nHow many seats would you like? ";
-	cin >> numOfSeat; 
+	cin >> numOfSeats;
 
 	do
 	{
 		cout << "\nEnter a seat you would like, eg 2,B: ";
 		cin >> r >> comma >> column; // reading in the 3 characters inputed 
+
+		r = r - 1; //Making the input line up with the array position. eg, first row = 0 but the input will be 1.
 
 		// Assigning the letter input to corresponding column postion 
 		if (column == 'A' || column == 'a')  
@@ -130,22 +134,23 @@ void FloorChart::SelectSeat()
 		if (column == 'E' || column == 'e')
 			c = 4;
 
-		floor[r - 1][c]->CheckStatus();
+		floor[r][c]->CheckStatus();
 
-		if (floor[r - 1][c]->CheckStatus() != available) // if CheckStatus returned held or unavailalbe 
+		if (floor[r][c]->CheckStatus() != available) // if CheckStatus returned held or unavailalbe 
 		{
 			cout << "Seat Not Available";
 			count = count - 1; // taking the counter back one step so they can re-select a seat
 		}
 		else 
 		{
-			floor[r - 1][c]->SetStatus(held); //making that seat status held
-			floor[r - 1][c]->GetPrice();
+			floor[r][c]->SetStatus(held); //making that seat status held
+			seatPrice = floor[r][c]->GetPrice();
+			//AddToTicket(numOfSeats, count, r, column, seatPrice);
 		}
 		count++;
-	} while (count != numOfSeat);
-	
-	
+	} while (count != numOfSeats);
 	DisplayFloorChart();
 }
+
+
 

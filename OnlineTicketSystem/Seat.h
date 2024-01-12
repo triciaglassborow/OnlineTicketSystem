@@ -52,5 +52,5 @@ string Seat::CheckStatus()
 
 int Seat::GetPrice()
 {
-	cout << price;
+	return price;
 }

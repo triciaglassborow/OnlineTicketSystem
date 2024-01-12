@@ -3,8 +3,6 @@
 #include <string>
 #include <Windows.h>
 
-#include "Seat.h"
-
 using namespace std;
 
 // have floorchart send each seat thats been held into a ticketlist
@@ -12,11 +10,13 @@ class Ticket
 {
 public:
 	Ticket();
-	void GetSeatInfo(string SeatStatus, int SeatPrice);
-	void TicketInfo();
+	void AddToTicket(int NumOfSeats, int SeatNum, int R, char Column, int SeatPrice);
+	void DisplayTicket(int NumOfSeats);
+	//void GetSeatInfo(string SeatStatus, int SeatPrice);
+	//void TicketInfo();
 
 protected:
-	
+	string ticket[8];
 };
 
 Ticket::Ticket()
@@ -24,17 +24,18 @@ Ticket::Ticket()
 
 }
 
-void GetSeatInfo(string SeatStatus, int SeatPrice)
+void Ticket::AddToTicket(int NumOfSeats, int SeatNum, int R, char Column, int SeatPrice)
 {
-	SeatStatus;
-
-}
-
-void TicketInfo()
-{
-	int maxSeat = 0;
 	do
 	{
-		ticket[maxSeat]
-	} while (maxSeat < 7);
+		ticket[SeatNum] = ("Seat:", R, Column, "  Price: ", SeatPrice);
+	} while (SeatNum != NumOfSeats);
+}
+
+void Ticket::DisplayTicket(int NumOfSeats)
+{
+	for (int i = 0; i < NumOfSeats; i++)
+	{
+		cout << ticket[i];
+	}
 }

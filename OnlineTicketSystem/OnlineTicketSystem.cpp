@@ -11,6 +11,7 @@ using namespace std;
 #include "customer.h"
 #include "ShowList.h"
 
+
 //Main Menu Function
 void menu(customer CUST, ShowList SHOWLIST)
 {
@@ -52,12 +53,14 @@ int main()
     customer CUST;
     ShowList SHOWLIST;
 
+
     //Getting customer details
     //CUST.login();
     //CUST.createProfile();
     
     //Main Menu, user can select what they want to do
     menu(CUST, SHOWLIST);
+    cout << "END";
     
 }
 
