@@ -18,8 +18,8 @@ public:
 	void DisplayFloorChart();
 	void SelectSeat();
 	void DisplayTicketList();
-	void Payment();
-	void SeatsUnavailable()
+	void MakePayment();
+	void MakeSeatsUnavailable();
 
 protected:
 	shared_ptr<Seat>floor[3][5];
@@ -167,14 +167,24 @@ void FloorChart::SelectSeat()
 void FloorChart::DisplayTicketList()
 {
 	TICK.DisplayTicket();
+	MakePayment();
 }
 
-void FloorChart::Payment()
+void FloorChart::MakePayment()
 {
 	TICK.Payment();
+	MakeSeatsUnavailable();
 }
 
-void FloorChart::SeatsUnavailable()
+void FloorChart::MakeSeatsUnavailable()
 {
-
+	for (int r = 0; r < 3; ++r)
+	{
+		for (int c = 0; c < 5; ++c)
+		{
+			if (floor[r][c]->CheckStatus() == held)
+				floor[r][c]->SetStatus(unavaialble);
+		}
+	}
+	DisplayFloorChart();
 }

@@ -27,7 +27,8 @@ protected:
 
 Ticket::Ticket()
 {
-
+	credit = "";
+	cvc = "";
 }
 
 
@@ -53,27 +54,35 @@ void Ticket::DisplayTicket()
 	}
 	cout << "---------------------\n";
 	cout << "    Total Price : " << pound << totalPrice;
+	
 }
 
 
 void Ticket::Payment()
 {
-	cout << "Enter Credit Card Number";
+	cin.clear();
+	cin.ignore(100, '\n');
+	cout << "\nPAYMENT" << endl;
+	cout << "\nEnter Credit Card Number: ";
 	getline(cin, credit);
-	while (credit.length() > 16)
+
+	while (credit.length() != 16)
 	{
-		cout << "Credit Card Number is more then 10 numbers" << endl;
-		cout << "Re-enter Credit Card Number: ";
+		cout << "\nCredit Card Number must be 16 digits" << endl;
+		cout << "\nRe-enter Credit Card Number: ";
 		getline(cin, credit);
 	}
 
-	cout << "Enter CVC";
+	cout << "\nEnter CVC: ";
 	getline(cin, cvc);
-	while (credit.length() > 3)
+
+	while (cvc.length() != 3)
 	{
-		cout << "CVC is more then 3 numbers" << endl;
-		cout << "Re-enter CVC: ";
+		cout << "\nCVC must be 3 didgits " << endl;
+		cout << "\nRe-enter CVC: ";
 		getline(cin, cvc); 
 	}
+
+	cout << "\nPayment Accepeted";
 }
 

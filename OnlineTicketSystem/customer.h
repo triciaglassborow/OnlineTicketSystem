@@ -55,7 +55,7 @@ void customer::login()
 	//Username is more then 10 characters
 	while (username.length() > 10)
 	{
-		cout << "Username is more then 10 characters" << endl;
+		cout << "Username's must be 10 or less characters" << endl;
 		cout << "Re-enter username: ";
 		getline(cin, username);
 	}
@@ -71,7 +71,7 @@ void customer::login()
 	//Password is more then 10 characters
 	while (password.length() > 10)
 	{
-		cout << "Password is more then 10 characters" << endl;
+		cout << "Password's must be 10 or less characters" << endl;
 		cout << "Re-enter Password: ";
 		getline(cin, password);
 	}
