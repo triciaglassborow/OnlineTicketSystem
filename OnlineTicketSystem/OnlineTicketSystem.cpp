@@ -59,9 +59,7 @@ int main()
     //CUST.createProfile();
     
     //Main Menu, user can select what they want to do
-    menu(CUST, SHOWLIST);
-    cout << "END";
-    
+    menu(CUST, SHOWLIST);    
 }
 
 

@@ -4,6 +4,7 @@
 #include <Windows.h>
 
 #include "Seat.h"
+#include "Ticket.h"
 
 
 using namespace std;
@@ -16,14 +17,15 @@ public:
 	void InitiliseFloorChart();
 	void DisplayFloorChart();
 	void SelectSeat();
-	void AddToTicketList(int SeatNum, int R, char Column, int SeatPrice);
 	void DisplayTicketList();
+	void Payment();
+	void SeatsUnavailable()
 
 protected:
 	shared_ptr<Seat>floor[3][5];
 	string available = "A",
 		held = "H",
-		unavailble = "X";
+		unavaialble = "X";
 	string seat;
 
 	char pound = 156, // £ in ASCII
@@ -36,7 +38,9 @@ protected:
 
 	int numOfSeats;
 
-	string ticketList[8];
+	//string ticketList[8];
+
+	Ticket TICK;
 	
 };
 
@@ -47,6 +51,7 @@ FloorChart::FloorChart()
 
 void FloorChart::InitiliseFloorChart()
 {
+	//2D arrary of pointers, 
 	//Each row has a different price. 
 	//For each row, set the same price for each column. All seats set to available
 	for (int r = 0; r < 3; ++r)
@@ -149,8 +154,9 @@ void FloorChart::SelectSeat()
 		else 
 		{
 			floor[r][c]->SetStatus(held); //making that seat status held
-			seatPrice = floor[r][c]->GetPrice();
-			AddToTicketList(count, row, column, seatPrice);
+			seatPrice = floor[r][c]->GetPrice();  
+			cout << seatPrice;
+			TICK.AddToTicket(numOfSeats, count, row, column, seatPrice);
 		}
 		count++;
 	} while (count != numOfSeats);
@@ -158,18 +164,17 @@ void FloorChart::SelectSeat()
 	DisplayFloorChart();
 }
 
-void FloorChart::AddToTicketList(int SeatNum, int R, char Column, int SeatPrice)
-{
-	string r = to_string(R); // converting int R to string r
-	string seatPrice = to_string(SeatPrice); //converting int SeatPrice to string seatPrice
-	string ticketText ="Seat: " + r + Column+ "   Price: " + seatPrice; // Makeing it one string to add to ticketList.
-	ticketList[SeatNum] = { ticketText };
-}
-
 void FloorChart::DisplayTicketList()
 {
-	for (int i = 0; i < numOfSeats; i++)
-	{
-		cout << ticketList[i] << "\n";
-	}
+	TICK.DisplayTicket();
+}
+
+void FloorChart::Payment()
+{
+	TICK.Payment();
+}
+
+void FloorChart::SeatsUnavailable()
+{
+
 }
