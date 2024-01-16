@@ -14,12 +14,12 @@ class FloorChart
 
 public:
 	FloorChart();
-	void InitiliseFloorChart();
+	void InitialiseFloorChart();
 	void DisplayFloorChart();
 	void SelectSeat();
 	void DisplayTicketList();
 	void MakePayment();
-	void MakeSeatsUnavailable();
+	void SetSeatsUnavailable();
 
 protected:
 	shared_ptr<Seat>floor[3][5];
@@ -46,10 +46,10 @@ protected:
 
 FloorChart::FloorChart()
 {
-	InitiliseFloorChart();
+	InitialiseFloorChart(); 
 }
 
-void FloorChart::InitiliseFloorChart()
+void FloorChart::InitialiseFloorChart()
 {
 	//2D arrary of pointers, 
 	//Each row has a different price. 
@@ -173,10 +173,10 @@ void FloorChart::DisplayTicketList()
 void FloorChart::MakePayment()
 {
 	TICK.Payment();
-	MakeSeatsUnavailable();
+	SetSeatsUnavailable();
 }
 
-void FloorChart::MakeSeatsUnavailable()
+void FloorChart::SetSeatsUnavailable()
 {
 	for (int r = 0; r < 3; ++r)
 	{

@@ -17,10 +17,6 @@ public:
 
 protected:
 	string status;
-	string available = "A",
-		held = "H",
-		unavaialble = "X";
-
 	int price;
 };
 
@@ -42,12 +38,7 @@ void Seat::DisplayStatus()
 
 string Seat::CheckStatus()
 {
-	if (status == available)
-		return available;
-	if (status == held)
-		return held;
-	if (status == unavaialble)
-		return unavaialble;
+	return status;
 }
 
 int Seat::GetPrice()

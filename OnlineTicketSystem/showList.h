@@ -14,7 +14,7 @@ class ShowList
 public:
 	ShowList();
 	~ShowList();
-	void InitiliseShows();
+	void InitialiseShows();
 	void DisplayShowList();
 	void SelectShow();
 
@@ -25,7 +25,7 @@ protected:
 //Constructor
 ShowList :: ShowList()
 {  
-	InitiliseShows(); //Initilises Shows
+	InitialiseShows(); //Initilises Shows
 }
 
 //Destructor
@@ -34,7 +34,7 @@ ShowList::~ShowList()
 
 }
 
-void ShowList::InitiliseShows()
+void ShowList::InitialiseShows()
 {
 	showList[0] = new Show("show1", "Date1", "Time1");
 	showList[1] = new Show("show2", "Date2", "Time2");
