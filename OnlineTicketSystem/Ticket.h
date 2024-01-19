@@ -83,6 +83,6 @@ void Ticket::Payment()
 		getline(cin, cvc); 
 	}
 
-	cout << "\nPayment Accepeted";
+	cout << "\nPayment Accepeted"<< endl;
 }
 

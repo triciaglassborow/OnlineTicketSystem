@@ -14,8 +14,8 @@ public:
 	~customer();
 	void login();
 	void createProfile();
-	void displayProfileInfo();
-	//void getPaymentInfo();
+	void DisplayProfileInfo();
+	void Test();
 
 protected:
 	string username, 
@@ -101,12 +101,21 @@ void customer::createProfile()
 }
 
 //Display Customer Profile
-void customer::displayProfileInfo()
+void customer::DisplayProfileInfo()
 {
+	//cleaing input
+	cin.clear();
+	cin.ignore(100, '\n');
+
 	system("CLS");
 	cout << "PROFILE" << endl;
 	cout << "Username: " << username << endl;
 	cout << "First Name: " << fName << endl;
 	cout << "Surname: " << sName << endl;
 	cout << "Address: " << address << endl;
+
+	// holds screen until a user input
+	cout << "Press any key to return to Main Menu";
+	cin.get();
 }
+

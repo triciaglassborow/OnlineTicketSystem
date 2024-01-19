@@ -187,4 +187,8 @@ void FloorChart::SetSeatsUnavailable()
 		}
 	}
 	DisplayFloorChart();
+
+	//Holds screen until the user presses a key
+	cout << "Press any key to return to Main Menu";
+	cin.get();
 }

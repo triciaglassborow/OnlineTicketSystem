@@ -13,42 +13,32 @@ using namespace std;
 
 
 //Main Menu Function
-void menu(customer CUST, ShowList SHOWLIST)
+void menu(customer CUST, ShowList SHOWLIST, bool& exit)
 {
     system("CLS");
-
-    char menu_input;
+    char menu_input = 0;
     cout << "MAIN MENU" << endl;
 
     cout << "1. Display Profile Info" << endl;
     cout << "2. Choose a Show" << endl;
+    cout << "3. Exit Program" << endl; 
 
     cout << "Enter Choice: ";
     cin >> menu_input;
 
     switch (menu_input)
     {
-        case '1' : CUST.displayProfileInfo(); //Displaying customer details
+    case '1': CUST.DisplayProfileInfo(); //Displaying customer details 
             break;
         case '2': SHOWLIST.DisplayShowList();
             break;
+        case '3': exit = true;
     }
 }
 
 int main()
 {
-    //Variables
-    string a,
-        b,
-        c;
-
-    int d;
-
-    double e;
-
-    char ch,
-        terminator;
-
+    bool exit = false;
     //Objects
     customer CUST;
     ShowList SHOWLIST;
@@ -58,8 +48,13 @@ int main()
     CUST.login();
     CUST.createProfile();
     
+    do
+    {
+        menu(CUST, SHOWLIST, exit); 
+
+    } while (exit != true);
     //Main Menu, user can select what they want to do
-    menu(CUST, SHOWLIST);    
+      
 }
 
 
