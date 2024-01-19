@@ -13,7 +13,7 @@ using namespace std;
 
 
 //Main Menu Function
-void menu(customer CUST, ShowList SHOWLIST, bool& exit)
+void menu(Customer CUST, ShowList SHOWLIST, bool& exit)
 {
     system("CLS");
     char menu_input = 0;
@@ -40,13 +40,13 @@ int main()
 {
     bool exit = false;
     //Objects
-    customer CUST;
+    Customer CUST;
     ShowList SHOWLIST;
 
 
     //Getting customer details
-    CUST.login();
-    CUST.createProfile();
+    CUST.Login();
+    CUST.CreateProfile();
     
     do
     {

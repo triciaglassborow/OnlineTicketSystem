@@ -130,7 +130,7 @@
     <ClCompile Include="OnlineTicketSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="customer.h" />
+    <ClInclude Include="Customer.h" />
     <ClInclude Include="FloorChart.h" />
     <ClInclude Include="Ticket.h" />
     <ClInclude Include="Seat.h" />

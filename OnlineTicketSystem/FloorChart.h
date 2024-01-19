@@ -103,10 +103,11 @@ void FloorChart::DisplayFloorChart()
 		if (r == 2)
 			cout << "     " << pound << tier3;
 
+		cout << "\n  |_____|_____|_____|_____|_____|"; // adding the bottom of the row
 		if (r !=2) 
-			cout << "\n  |_____|_____|_____|_____|_____|" << "\n  |     |     |     |     |     |\n";// adding the row line to all of them then adding the beggining of the next box
+			cout << "\n  |     |     |     |     |     |\n";// the next row
 		if (r == 2)
-			cout << "\n  |_____|_____|_____|_____|_____|" <<
+			cout <<
 			"\n        __________________ " <<
 			"\n       /       STAGE      " << slash << endl;; // adding a bottom to the final row
 	}

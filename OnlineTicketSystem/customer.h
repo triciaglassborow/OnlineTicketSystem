@@ -7,15 +7,14 @@
 
 using namespace std;
 
-class customer
+class Customer
 {
 public:
-	customer();
-	~customer();
-	void login();
-	void createProfile();
+	Customer();
+	~Customer();
+	void Login();
+	void CreateProfile();
 	void DisplayProfileInfo();
-	void Test();
 
 protected:
 	string username, 
@@ -25,7 +24,7 @@ protected:
 };
 
 //Constructor 
-customer::customer()
+Customer::Customer()
 {
 	//Initialise Variables 
 	fName = "";
@@ -34,11 +33,11 @@ customer::customer()
 }
 
 //Destructor
-customer::~customer()
+Customer::~Customer()
 {}
 
 //Login
-void customer::login()
+void Customer::Login()
 {
 	/*The final system would use a database to store all the 
 	usernames and passwords in a database */
@@ -84,15 +83,15 @@ void customer::login()
 }
 
 //Create Customer Profile
-void customer::createProfile()
+void Customer::CreateProfile()
 {
-	cout << "CREATE PROFILE" << endl;
+	cout << "\nCREATE PROFILE" << endl;
 	//First Name
 	cout << "\nEnter First Name: ";
 	getline(cin, fName);
 
 	//Surname
-	cout << "Enter Surname Name: ";
+	cout << "Enter Surname: ";
 	getline(cin, sName);
 
 	//Address -imporve this-
@@ -101,7 +100,7 @@ void customer::createProfile()
 }
 
 //Display Customer Profile
-void customer::DisplayProfileInfo()
+void Customer::DisplayProfileInfo()
 {
 	//cleaing input
 	cin.clear();

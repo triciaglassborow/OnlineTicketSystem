@@ -7,7 +7,7 @@ using namespace std;
 #include <string>
 #include <Windows.h>
 
-#include "show.h"
+#include "Show.h"
 
 class ShowList
 {
