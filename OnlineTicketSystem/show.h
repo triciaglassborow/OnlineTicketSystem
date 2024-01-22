@@ -36,9 +36,7 @@ Show::Show(string name, string date, string time)
 
 void Show::DisplayShowName(int position)
 {
-	this->showPosition = position;
-
-	cout << showPosition << " " << showName << " | ";
+	cout << position << " " << showName << " | ";
 }
 
 void Show::DisplayShowDetails()

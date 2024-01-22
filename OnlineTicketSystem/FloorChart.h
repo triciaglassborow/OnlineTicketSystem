@@ -121,16 +121,23 @@ void FloorChart::SelectSeat()
 	int row,
 		seatPrice;
 	char column;
-	cout << "\nHow many seats would you like? ";
+	cout << "\nHow many seats would you like? (8 Max)";
 	cin >> numOfSeats;
+
+	while (numOfSeats > 8)
+	{
+		cout << "\nMax seats allowed is 8 " << endl;
+		cout << "\nHow many seats would you like? ";
+		cin >> numOfSeats;
+	}
 
 	do
 	{
 		int c = 0;
 		int r = 0;
-		cout << "Enter a seat you would like, eg 2,B: ";
-		cin >> row >> column; // reading in the 3 characters inputed 
-
+		cout << "Enter a seat you would like, eg 2B: ";
+		cin >> row >> column; // reading in the 2 characters inputed 
+	
 		r = row - 1; //Making the input line up with the array position. eg, first row = 0 but the input will be 1.
 
 		// Assigning the letter input to corresponding column postion 

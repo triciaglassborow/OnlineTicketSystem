@@ -53,7 +53,7 @@ void Ticket::DisplayTicket()
 		cout << ticket[i] << "\n";
 	}
 	cout << "---------------------\n";
-	cout << "    Total Price : " << pound << totalPrice;
+	cout << "    Total Price : " << pound << totalPrice << endl;
 	
 }
 

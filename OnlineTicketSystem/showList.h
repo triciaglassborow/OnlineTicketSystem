@@ -19,7 +19,7 @@ public:
 	void SelectShow();
 
 protected:
-	Show* showList[8];
+	Show* showList[4];
 };
 
 //Constructor
@@ -36,10 +36,10 @@ ShowList::~ShowList()
 
 void ShowList::InitialiseShows()
 {
-	showList[0] = new Show("show1", "Date1", "Time1");
-	showList[1] = new Show("show2", "Date2", "Time2");
-	showList[2] = new Show("show3", "Date3", "Time3");
-	showList[3] = new Show("show4", "Date4", "Time4");
+	showList[0] = new Show("SIX", "14th Feb 2024", "6:00pm");
+	showList[1] = new Show("Mean Girls", "17th Feb 2024", "3:00pm");
+	showList[2] = new Show("Beetlejuice", "20th Feb 2024", "5:00pm");
+	showList[3] = new Show("Matilda", "22nd Feb 2024", "1:00pm");
 
 }
 
@@ -55,13 +55,26 @@ void ShowList::DisplayShowList()
 
 void ShowList::SelectShow()
 {
-	char show = 0;
+	// clearing input 
+	cin.clear();
+	cin.ignore(100, '\n');
+
+	char show;
 	cout << "\nEnter the number for the show you would like to select: ";
 	cin >> show;
 
 	switch (show)
 	{
-		case '1':  showList[0]->DisplayShowDetails();
-			break;
+	case '1':  showList[0]->DisplayShowDetails();
+		break;
+	case '2':  showList[1]->DisplayShowDetails();
+		break;
+	case '3':  showList[2]->DisplayShowDetails();
+		break;
+	case '4':  showList[3]->DisplayShowDetails();
+		break;
+	default: cout << "\nERROR";
+		SelectShow();
 	}
+
 }
