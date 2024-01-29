@@ -73,7 +73,7 @@ void ShowList::SelectShow()
 		break;
 	case '4':  showList[3]->DisplayShowDetails();
 		break;
-	default: cout << "\nERROR";
+	default: cout << "\nIncorrect Input";
 		SelectShow();
 	}
 

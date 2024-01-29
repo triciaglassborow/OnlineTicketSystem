@@ -32,9 +32,9 @@ protected:
 		slash = 92 ; // \ in ASCII
 
 	// setting price of each seat tier
-	int tier1 = 1,
-		tier2 = 2,
-		tier3 = 3;
+	int tier1 = 10,
+		tier2 = 15,
+		tier3 = 20;
 
 	int numOfSeats;
 
@@ -121,7 +121,7 @@ void FloorChart::SelectSeat()
 	int row,
 		seatPrice;
 	char column;
-	cout << "\nHow many seats would you like? (8 Max)";
+	cout << "\nHow many seats would you like? (8 Max) ";
 	cin >> numOfSeats;
 
 	while (numOfSeats > 8)
@@ -156,14 +156,13 @@ void FloorChart::SelectSeat()
 
 		if (floor[r][c]->CheckStatus() != available) // if CheckStatus returned held or unavailalbe 
 		{
-			cout << "Seat Not Available";
+			cout << "Seat Not Available\n";
 			count = count - 1; // taking the counter back one step so they can re-select a seat
 		}
 		else 
 		{
 			floor[r][c]->SetStatus(held); //making that seat status held
 			seatPrice = floor[r][c]->GetPrice();  
-			cout << seatPrice;
 			TICK.AddToTicket(numOfSeats, count, row, column, seatPrice);
 		}
 		count++;

@@ -12,7 +12,7 @@ class Customer
 public:
 	Customer();
 	~Customer();
-	void Login();
+	void SignUp();
 	void CreateProfile();
 	void DisplayProfileInfo();
 
@@ -37,7 +37,7 @@ Customer::~Customer()
 {}
 
 //Login
-void Customer::Login()
+void Customer::SignUp()
 {
 	/*The final system would use a database to store all the 
 	usernames and passwords in a database */
@@ -46,7 +46,7 @@ void Customer::Login()
 
 	//Output
 	//Enter Username
-	cout << "LOGIN" << endl;
+	cout << "SIGN UP" << endl;
 	cout << "Enter Username: ";
 	getline(cin, username);
 	/*Create the profile then save */

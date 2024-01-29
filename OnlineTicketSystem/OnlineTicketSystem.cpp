@@ -45,8 +45,8 @@ int main()
 
 
     //Getting customer details
-    CUST.Login();
-    CUST.CreateProfile();
+    //CUST.SignUp();
+    //CUST.CreateProfile();
     
     do
     {
