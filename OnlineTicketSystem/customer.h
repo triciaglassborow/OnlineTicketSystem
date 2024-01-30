@@ -1,5 +1,9 @@
 //customer.h 
-
+/*
+-Sign Up
+-Create Profile
+-Display Profile Info
+*/
 #include <iostream>
 #include <iomanip>
 #include <string>

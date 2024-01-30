@@ -1,4 +1,9 @@
 //showList.h 
+/*
+-stores an array of Show pointer
+-where shows are initilised
+-where the user selects what show they want to see
+*/
 
 using namespace std;
 
@@ -19,13 +24,13 @@ public:
 	void SelectShow();
 
 protected:
-	Show* showList[4];
+	Show* showList[4]; //Array of show pointers
 };
 
 //Constructor
 ShowList :: ShowList()
 {  
-	InitialiseShows(); //Initilises Shows
+	InitialiseShows();
 }
 
 //Destructor
@@ -40,7 +45,6 @@ void ShowList::InitialiseShows()
 	showList[1] = new Show("Mean Girls", "17th Feb 2024", "3:00pm");
 	showList[2] = new Show("Beetlejuice", "20th Feb 2024", "5:00pm");
 	showList[3] = new Show("Matilda", "22nd Feb 2024", "1:00pm");
-
 }
 
 void ShowList::DisplayShowList()

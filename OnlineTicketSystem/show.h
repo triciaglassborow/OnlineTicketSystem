@@ -1,3 +1,9 @@
+/*
+-each show is assigned its name, date and time in ShowList.h
+-Seat Selection for the show, calling different functions from FloorChart.h to
+make seat selection work
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <string>

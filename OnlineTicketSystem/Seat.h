@@ -1,3 +1,8 @@
+/*
+-each seat object will have its own availbilty 
+and price thats assigned to it in FloorChart.h
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <string>

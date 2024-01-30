@@ -1,3 +1,15 @@
+/*
+Features of FloorChart.h:
+-storing seat pointers in a 2d array 
+-initilises seat objects with their availablity and price
+-their are 3 price tiers, the closer the row is to the stage the more expecsive the seat
+-the size of the 2d array sets the size of the floor chart
+-getting and setting seat availablity 
+-User can select what seats they want
+-Call DisplayTicket from ticket class
+-Call Payment from ticket class
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -38,8 +50,6 @@ protected:
 
 	int numOfSeats;
 
-	//string ticketList[8];
-
 	Ticket TICK;
 	
 };
@@ -73,11 +83,6 @@ void FloorChart::InitialiseFloorChart()
 				floor[r][c] = shared_ptr<Seat>(new Seat(available, tier3));
 		}
 	}
-
-	/*for (int r = 0; r < 3; ++r)
-		for (int c = 0; c < 5; ++c)
-			floor[r][c] = shared_ptr<Seat>(new Seat(available)); //setting all seats as available when the floor chart is first created*/
-
 }
 
 void FloorChart::DisplayFloorChart()
