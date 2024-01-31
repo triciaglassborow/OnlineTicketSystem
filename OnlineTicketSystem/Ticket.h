@@ -1,3 +1,10 @@
+/*
+-Adding held seat info to the ticket
+-Calculating total price
+-Displaying the full ticket
+-Payment
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -5,7 +12,7 @@
 
 using namespace std;
 
-// have floorchart send each seat thats been held into a ticketlist
+
 class Ticket
 {
 public:
@@ -40,7 +47,8 @@ void Ticket::AddToTicket(int NumOfSeats, int SeatNum, int Row, char Column, int 
 
 	string row = to_string(Row); // converting int R to string r
 	string seatPrice = to_string(SeatPrice); //converting int SeatPrice to string seatPrice
-	string ticketText = "Seat: " + row + Column + "   Price: " + pound + seatPrice; // Makeing it one string to add to ticketList.
+	string ticketText = "Seat: " + row + Column + "   Price: " + pound + seatPrice; 
+												// Makeing it one string to add to ticketList.
 	ticket[SeatNum] = { ticketText };
 }
 

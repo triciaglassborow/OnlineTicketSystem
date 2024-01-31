@@ -52,7 +52,8 @@ void ShowList::DisplayShowList()
 	for (int counter = 0; counter <= 3; ++counter)
 	{
 		int position = counter + 1; //the position for the show starts from 1 insead of 0
-		showList[counter]->DisplayShowName(position); //Prints the name of each Show for every show in the list
+		showList[counter]->DisplayShowName(position); //Prints the name of each Show for 
+																//every show in the list
 	}
 	SelectShow();
 }

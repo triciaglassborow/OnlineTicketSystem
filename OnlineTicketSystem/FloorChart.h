@@ -29,7 +29,7 @@ public:
 	void InitialiseFloorChart();
 	void DisplayFloorChart();
 	void SelectSeat();
-	void DisplayTicketList();
+	void DisplayTicket();
 	void MakePayment();
 	void SetSeatsUnavailable();
 
@@ -114,7 +114,8 @@ void FloorChart::DisplayFloorChart()
 		if (r == 2)
 			cout <<
 			"\n        __________________ " <<
-			"\n       /       STAGE      " << slash << endl;; // adding a bottom to the final row
+			"\n       /       STAGE      " << slash << endl;; 
+														//adding a bottom to the final row
 	}
 }
 
@@ -143,7 +144,8 @@ void FloorChart::SelectSeat()
 		cout << "Enter a seat you would like, eg 2B: ";
 		cin >> row >> column; // reading in the 2 characters inputed 
 	
-		r = row - 1; //Making the input line up with the array position. eg, first row = 0 but the input will be 1.
+		r = row - 1; //Making the input line up with the array position. 
+							//eg, first row = 0 but the input will be 1.
 
 		// Assigning the letter input to corresponding column postion 
 		if (column == 'A' || column == 'a')  
@@ -157,12 +159,13 @@ void FloorChart::SelectSeat()
 		if (column == 'E' || column == 'e')
 			c = 4;
 
-		floor[r][c]->CheckStatus();
-
-		if (floor[r][c]->CheckStatus() != available) // if CheckStatus returned held or unavailalbe 
+		floor[r][c]->CheckStatus(); 
+		
+		//if CheckStatus returned held or unavailalbe 
+		if (floor[r][c]->CheckStatus() != available)
 		{
 			cout << "Seat Not Available\n";
-			count = count - 1; // taking the counter back one step so they can re-select a seat
+			count = count - 1; //taking the counter back one step so they can re-select a seat
 		}
 		else 
 		{
@@ -176,7 +179,7 @@ void FloorChart::SelectSeat()
 	DisplayFloorChart();
 }
 
-void FloorChart::DisplayTicketList()
+void FloorChart::DisplayTicket()
 {
 	TICK.DisplayTicket();
 	MakePayment();
